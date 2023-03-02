@@ -27,5 +27,8 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
     <apikit:config name="prc-two-api-config" api="resource::e60ab7b8-d535-4835-aee4-cc35fc38f83d:prc-two-api:1.0.0:raml:zip:prc-two-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <api-gateway:autodiscovery apiId="18529194" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="a29bbe9f-efb2-4037-967c-08dd0020121b" flowRef="prc-two-api-main" />
 	<configuration doc:name="Configuration" doc:id="c3f6e0ff-091b-42ba-b447-30b527aef500" defaultErrorHandler-ref="Error_Handler" />
+	<http:request-config name="httpCallSystemRequest" doc:name="HTTP Request configuration" doc:id="2bd6f29e-2351-4b79-8740-67c777c51112" basePath='#[Mule::p("system.basePath")]'>
+		<http:request-connection host='#[Mule::p("system.host")]' />
+	</http:request-config>
 	
 </mule>

@@ -20,11 +20,11 @@ https:
   
 ##=========== HTTP SYSTEM ==============================
 system:
-  host: "localhost"
-  port: "8082"
-  basePath: "/api"
-  client_id: "35e0a6f76e364909a100e6b0fccacf5d"
-  client_secret: "${secure::system.client_secret}"
+  host: "z-cloudhub-sys-app.us-e2.cloudhub.io"
+  port: "80"
+  basePath: "api"
+  client_id: "933c6e693e7447b4b5a9ca7cd9953812"
+  client_secret: "81Aa668fF3F74d6Fad7c154189B3E20c"
   
 ##============ JSON LOGGER =============================
 json:

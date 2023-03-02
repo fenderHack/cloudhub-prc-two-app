@@ -11,7 +11,9 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
                 <http:headers>#[vars.outboundHeaders default {}]</http:headers>
             </http:error-response>
         </http:listener>
-        <apikit:router config-ref="prc-two-api-config" />
+        <logger level="INFO" doc:name="BEGIN PRC TWO" doc:id="aae0b6db-e34f-4e10-a9de-f9bb422bea15" message="BEGIN PRC TWO"/>
+		<apikit:router config-ref="prc-two-api-config" />
+		<logger level="INFO" doc:name="END PRC TWO" doc:id="c747ac62-173f-4724-a48d-1fcccc8076d9" message="END PRC TWO"/>
         
     </flow>
     <flow name="prc-two-api-console">

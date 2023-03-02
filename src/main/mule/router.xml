@@ -5,11 +5,13 @@
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 	
 	<flow name="get:\test:prc-two-api-config">
-        <logger level="INFO" message="get:\test:prc-two-api-config" />
-    </flow>
+		<flow-ref doc:name="call-get-sys-app-main-flow" doc:id="57e79f73-6c89-4de0-a243-8c1bd914943a" name="call-get-sys-app-main-flow"/>
+    
+</flow>
     <flow name="post:\test:application\json:prc-two-api-config">
-        <logger level="INFO" message="post:\test:application\json:prc-two-api-config" />
-    </flow>
+		<flow-ref doc:name="call-post-sys-app-main-flow" doc:id="d4d4a532-d8e4-4b18-946b-383b17931ec9" name="call-post-sys-app-main-flow"/>
+    
+</flow>
 	
 	
 </mule>
