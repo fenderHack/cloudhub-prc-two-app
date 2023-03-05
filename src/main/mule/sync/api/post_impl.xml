@@ -5,7 +5,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
 	<flow name="call-post-sys-app-main-flow" doc:id="c4d7e7f1-7d10-44fe-92a3-adc784bbcfab" >
-		<http:request method="POST" doc:name="call-post-sys-app" doc:id="0cfc57bc-31b6-49ba-bc6a-96a7896d0359" config-ref="httpCallSystemRequest" path="/test">
+		<http:request method="POST" doc:name="call-post-sys-app" doc:id="0cfc57bc-31b6-49ba-bc6a-96a7896d0359" config-ref="sysHTTPS_Request" path="/test">
 			<http:headers ><![CDATA[#[{
 	client_id: p("system.client_id"),
 	client_secret: p("system.client_secret")

@@ -25,6 +25,7 @@ system:
   basePath: "api"
   client_id: "933c6e693e7447b4b5a9ca7cd9953812"
   client_secret: "81Aa668fF3F74d6Fad7c154189B3E20c"
+  https.port: "443"
   
 ##============ JSON LOGGER =============================
 json:

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+<mule xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
+	xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
 	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
-	xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
 http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
 	
 	
 	<global-property doc:name="globalProperty" doc:id="a7b15961-eba2-4627-85c2-e2a48e1510b4" name="env" value="dev" />
@@ -30,5 +31,11 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 	<http:request-config name="httpCallSystemRequest" doc:name="HTTP Request configuration" doc:id="2bd6f29e-2351-4b79-8740-67c777c51112" basePath='#[Mule::p("system.basePath")]'>
 		<http:request-connection host='#[Mule::p("system.host")]' />
 	</http:request-config>
+	<http:request-config name="sysHTTPS_Request" doc:name="HTTP Request configuration" doc:id="e517314c-e774-4acc-baa5-bd3cf7f53e19" basePath='#[Mule::p("system.basePath")]'>
+		<http:request-connection protocol="HTTPS" host='#[Mule::p("system.host")]' port='#[Mule::p("system.https.port")]' tlsContext="TLS_Context"/>
+	</http:request-config>
+	<tls:context name="TLS_Context" doc:name="TLS Context" doc:id="0dae35cf-87cc-42ee-8d7e-37dcd18c0f3f" >
+		<tls:trust-store path="prc2-truststore.jks" password="mulesoft" type="jks" insecure="true"/>
+	</tls:context>
 	
 </mule>
